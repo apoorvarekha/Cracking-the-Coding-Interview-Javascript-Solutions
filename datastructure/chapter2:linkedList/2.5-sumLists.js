@@ -28,28 +28,7 @@ const addData = (l1, l2, carry) => {
 
 
 
-//------------ recursion
-
-function sumListsRecursive(list1, list2, carry){
-    if(!list1 && !list2 && carry) return null
-    let finalList = {}
-
-    if(list1) carry += list1.data
-    if(list2) carry += list2.data
-    finalList.data = carry % 10
-
-    if(list1 || list2) {
-        const nextNode = sumListsRecursive(
-            list1 ? list1.next : null,
-            list2 ? list2.next: null,
-            carry >= 10 ? 1: 0
-
-        )
-        finalList = {data: nextNode, next: finalList}
-    }
-    return finalList
-}
-
+// DOTO recursive way
 
 let listOne = {
     data : 7,
@@ -71,4 +50,4 @@ let listTwo = {
     }
 }
 
-console.log(JSON.stringify(sumListsRecursive(listOne, listTwo, 0)))
+console.log(JSON.stringify(sumListsRecursiveOne(listOne, listTwo, 0)))
