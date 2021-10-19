@@ -29,7 +29,9 @@ function partition(head, i){
 
     return mainHeadNode
 }
-// TO DO - i dont know how this works
+
+
+// the first list data(10) will be kept as centerdata and then compare given i to next list data and place it left/right side of the centerdata
 function partition1 (node, i){
     let head = node
     let tail = node
@@ -39,15 +41,10 @@ function partition1 (node, i){
             node.next = head
             head = node
            
-           
         }else{
             tail.next = node
             tail = node
         }
-        console.log('N', node.data)
-        console.log('H', head.data)
-        console.log('T', tail.data)
-        console.log('---------')
         node= next
     }
     tail.next = null
@@ -73,9 +70,7 @@ let list = {
     }
 }
 
-// 5,3,2, 10, 11, 7
+// 5,3,2,10,11,7
 
-// 3, 5, 8, 5, 10, 2
 
-// 3, 2, 5, 5, 8, 10
 console.log(JSON.stringify(partition1(list, 5)))
