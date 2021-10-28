@@ -137,29 +137,103 @@ class BST{
     isBalanced(){
         return (this.findMinHeight() >= this.findMaxHeigth() -1) ? true : false
     }
+
+    inOrder(){
+        if(this.root === null){
+            return null;
+        }else{
+            let result = [];
+            function traverseInOrder(node){
+                node.left && traverseInOrder(node.left);
+                result.push(node.data);
+                node.right && traverseInOrder(node.right)
+            }
+            traverseInOrder(this.root)
+            return result
+        }
+    }
+
+    preOrder(){
+        if(this.root == null){
+            return null;
+        }else{
+            let result = [];
+            function traversePreOrder(node){
+                result.push(node.data);
+                node.left && traversePreOrder(node.left)
+                node.right && traversePreOrder(node.right)
+            }
+            traversePreOrder(this.root)
+            return result
+        }
+    }
+
+    postOrder(){
+        if(this.root == null){
+            return null;
+        } else {
+            let result = [];
+            function traversePostOrder(node){
+                node.left && traversePostOrder(node.left)
+                node.right && traversePostOrder(node.right)
+                result.push(node.data);
+            }
+            traversePostOrder(this.root)
+            return result
+        }
+    }
+
+    levelOrder(){
+        let result = [];
+        let Q = [];
+        if(this.root != null){
+            Q.push(this.root)
+            while(Q.length > 0){
+                let node = Q.shift()
+                result.push(node.data)
+                if(node.left){
+                    Q.push(node.left)
+                } 
+                if(node.right){
+                    Q.push(node.right)
+                }
+            }
+            return result
+        }else{
+            return null
+        }
+    }
+
 }
 
     let bst = new BST()
+    bst.add(9)
     bst.add(4)
-    bst.add(2)
-    bst.add(6)
-    bst.add(1)
+    bst.add(17)
     bst.add(3)
+    bst.add(6)
+    bst.add(10)
+    bst.add(22)
     bst.add(5)
     bst.add(7)
+    bst.add(20)
 
     console.log(bst.findMinHeight())
-    // console.log(bst.findMaxHeigth())
-    // console.log(bst.isBalanced())
+    console.log(bst.findMaxHeigth())
+    console.log(bst.isBalanced())
     // bst.remove(7)
-    // console.log(bst.findMinHeight())
-    // console.log(bst.findMaxHeigth())
-    // console.log(bst.isBalanced())
-    // console.log(bst.findMin())
-    // console.log(bst.findMax())
-    // bst.remove(7)
-    // console.log(bst.findMax())
-    // console.log(bst.isPresent(4))
+    console.log(bst.findMinHeight())
+    console.log(bst.findMaxHeigth())
+    console.log(bst.isBalanced())
+    console.log(bst.findMin())
+    console.log(bst.findMax())
+    console.log(bst.findMax())
+    console.log(bst.isPresent(4))
+
+    console.log(bst.inOrder())
+    console.log(bst.preOrder())
+    console.log(bst.postOrder())
+    console.log(bst.levelOrder())
 
     // 4 == null - false
     // r = ? findMinHeight(6)
