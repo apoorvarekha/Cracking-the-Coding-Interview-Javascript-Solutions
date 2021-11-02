@@ -19,7 +19,7 @@ function bfs(graph, root){
         console.log('**', idx)
         while (idx != -1) {
           neighborIdx.push(idx); 
-          idx = curConnected.indexOf(1, idx + 1); 
+          idx = curConnected.indexOf(1, idx + 1); // find next 1 in the same row
         }
         console.log('**', neighborIdx)
         
