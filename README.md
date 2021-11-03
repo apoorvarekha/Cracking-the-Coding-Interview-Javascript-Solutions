@@ -2,7 +2,7 @@
 
 ## Instructions
 
-- This repository contains Coding explaination of datastructure and solutions on questions listed in the book.
+- This repository contains coding explaination and solutions on questions listed in the book.
 
 - So far, codes are available for the first 4 chapters.
 
