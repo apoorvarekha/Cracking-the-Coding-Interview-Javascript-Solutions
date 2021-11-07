@@ -86,20 +86,20 @@ class LinkedList{
         let current = this.head
 
         while(current){
-            console.log(current.data)
             current = current.next 
         }
     }
 }
-
+this.tail.next = new LinkedListNode(value);
+this.tail = this.tail.next
 let ll = new LinkedList()
 ll.insertFirst(100)
 ll.insertFirst(200)
 ll.insertFirst(300)
 ll.insertLast(400)
 ll.insertAt(500, 2)
-// ll.printListData()
-//ll.getDataAt(0)
-console.log(ll.removeDataAt(4))
 ll.printListData()
+//ll.getDataAt(0)
+console.log(JSON.stringify(ll.removeDataAt(4)))
+// ll.printListData()
 
