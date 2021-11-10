@@ -8,6 +8,25 @@
  */
 
 
+// time - o(n^m)  space o(n^m)
+// taget = m  wordbank = n
 function allConstruct(target, wordBank){
-    let table = Array(target.length +1).fill(0)
+    let table = Array(target.length +1).fill().map(() => [])
+    table[0] = [[]]
+
+    for(let i =0; i <= target.length; i++){
+        for(let word of wordBank){
+            if(target.slice(i, i+word.length) === word){
+                let combination = table[i].map(subArray=> [...subArray, word])
+                table[i + word.length].push(...combination)
+            }
+        }
+    }
+
+    return table[target.length]
 }
+
+console.log(allConstruct("purple", ['purp', 'p', 'ur', 'le', 'purpl   '])) // [ [ 'purp', 'le' ], [ 'p', 'ur', 'p', 'le' ] ]
+console.log(allConstruct("abcdef", ['ab', 'abc', 'cd', 'def', 'abcd'])) // [ [ 'abc', 'def' ] ]
+console.log(allConstruct("skateboard", ['bo', 'rd', 'ate', 't', 'ska', 'sk', 'boar'])) // []
+console.log(allConstruct("eeeeeeeeeeeeeef", ['e', 'ee', 'eee', 'eeee', 'eeeee', 'eeeeee'])) // 0
