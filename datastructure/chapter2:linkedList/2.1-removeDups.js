@@ -2,6 +2,7 @@
 // o(n)
 function removeDups(list){
     if (!list || !list.next) return list;
+
     let currentList = list
     let set = new Set()
     set.add(currentList.data)
@@ -31,21 +32,25 @@ function removeDups1(head){
         }
         list = list.next
     }
-    return list1
+    return head
 }
 
 
 
 let list = {
-    data : 1,
+    data : 100,
     next: {
-        value : 2,
+        value : 200,
         next: {
-            data: 1,
+            data: 100,
             next: {
-                data: 3,
+                data: 300,
                 next: {
-                    data: 4
+                    data: 300,
+                    next: {
+                        data: 400,
+                        next: null
+                    }
                 }
             }
         }
