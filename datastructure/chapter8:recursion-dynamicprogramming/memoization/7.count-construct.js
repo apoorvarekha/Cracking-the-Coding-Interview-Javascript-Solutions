@@ -1,3 +1,11 @@
+/**
+ * write a function countConstruct(target, wordBank) that accepts target string and an array of strings
+ * 
+ * function should return number of ways that the target can be constructed by concatinating elements of wordBank array
+ * 
+ * you may reuse the elements of wordBank as many times as needed
+ */
+
 // time - o(n * m^2)  space - o(m^2)
 // taget = m  wordbank = n
 

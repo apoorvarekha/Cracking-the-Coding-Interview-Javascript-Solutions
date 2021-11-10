@@ -1,7 +1,20 @@
 
+/**
+    write a function canSum(targetSum, numbers) that takes targetSum and array of number as angrument.
+
+    the function should return an boolean indicating whether or not it is possible to generate the targetSum using the numbers from the array.
+
+    you may use the elements in the array as many times as needed
+
+    you may assume that all the numbers in the array are nonnegative.
+ 
+ */
 
 
-// time o(n^m) space o(m)
+/** time - o(mn)  space - o(m)
+*  m = targetSum
+*  n = numbers
+* */ 
 function canSum(targetSum, numbers, memo ={}){
     if(targetSum in memo) return memo[targetSum]
     if(targetSum < 0) return false;
