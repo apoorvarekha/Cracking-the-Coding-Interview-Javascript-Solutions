@@ -17,8 +17,6 @@ function powerSet(arr){
     return [...withoutFirst, ... withFirst]
 }
 
-console.log(powerSet(['a', 'b', 'c']))
-
 function combination(nums){
     let combinations = [];
 
@@ -39,5 +37,17 @@ function combination(nums){
         
      return combinations;
 }
+console.log(powerSet(['a', 'b', 'c']))
 
-console.log(combination(['a', 'b', 'c']))
+/**
+ [
+  [],
+  [ 'c' ],
+  [ 'b' ],
+  [ 'c', 'b' ],
+  [ 'a' ],
+  [ 'c', 'a' ],
+  [ 'b', 'a' ],
+  [ 'c', 'b', 'a' ]
+] 
+ */
