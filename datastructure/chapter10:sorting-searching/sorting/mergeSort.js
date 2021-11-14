@@ -1,3 +1,4 @@
+/** time- o(n logn)  space - o(n)*/
 function mergeSort(array){
     if(array.length <= 1) return array;
     
