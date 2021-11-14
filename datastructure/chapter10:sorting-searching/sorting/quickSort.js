@@ -1,4 +1,6 @@
-/** time- o(n logn)  space - o(n)*/
+/** time- o(n logn) space - o(log n)
+ * time - worst case o(n^2) ex: if sorted array is given
+*/
 function quickSort(array){
     if(array.length <= 1) return array
     // we are taking last element in array(we can also take 1st element)
