@@ -1,18 +1,25 @@
 
 
-function merge(a, b){
+function merge(a, b, countA, countB){
+    let indexA = countA - 1;
+    let indexB = countB - 1;
+    let indexMerge = countA + countB - 1
 
-    while(a.length && b.length){
-        if(left[0] < right[0]){
-            sortedArry.push(left.shift())
-        }else{
-            sortedArry.push(right.shift())
-        }
+    while(indexB >= 0){
+       if(indexA >= 0 && a[indexA] > b[indexB]){
+           a[indexMerge] = a[indexA];
+           indexA--;
+       }else{
+           a[indexMerge] = b[indexB];
+           indexB --
+       }
+       indexMerge --
     }
-    return [...sortedArry, ...left.slice(), ...right.slice()]
+
+    return a
 }
 
 
-let a = [6, 4]
-let b = [5, 7]
-console.log(mergeSort([1, 4, 2, 8, 345, 123, 42, 35]))
+let a = [4, 6]
+let b = [5, 7, 10]
+console.log(merge(a, b, 2, 3))
