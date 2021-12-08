@@ -1,19 +1,20 @@
 // with temporary
 // o(n)
 function removeDups(list){
-    if (!list || !list.next) return list;
+    let n = list
+    let set = new Set();
+    let previous = null;
 
-    let currentList = list
-    let set = new Set()
-    set.add(currentList.data)
-    while(currentList.next){
-        if(set.has(currentList.next.data)){
-            currentList.next = currentList.next.next
-        } else {
-            set.add(currentList.data)
-            currentList = currentList.next
+    while(n!= null){
+        if(set.has(n.data)){
+            previous.next = n.next
+        }else{
+            set.add(n.data);
+            previous = n;
         }
+        n = n.next
     }
+
     return list
 }
 
@@ -35,14 +36,12 @@ function removeDups1(head){
     return head
 }
 
-
-
 let list = {
     data : 100,
     next: {
-        value : 200,
+        data : 200,
         next: {
-            data: 100,
+            data: 300,
             next: {
                 data: 300,
                 next: {
@@ -57,5 +56,5 @@ let list = {
     }
 }
 
-console.log(JSON.stringify(removeDups1(list)))
+console.log(JSON.stringify(removeDups(list)))
 
